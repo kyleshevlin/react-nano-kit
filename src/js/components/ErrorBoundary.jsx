@@ -2,14 +2,26 @@ import React, { Component } from 'react'
 
 class ErrorBoundary extends Component {
   state = {
-    hasError: false
+    hasError: false,
+    errorInfo: null
   }
 
-  componentDidCatch(error, info) {
-    this.setState({ hasError: true })
+  componentDidCatch(hasError, errorInfo) {
+    this.setState({
+      hasError,
+      errorInfo
+    })
   }
 
   render() {
-    return this.state.hasError ? <h1>Something went wrong.</h1> : this.props.children
+    const { hasError, errorInfo } = this.state
+
+    return hasError ? (
+      <pre>
+        <code>{errorInfo.componentStack}</code>
+      </pre>
+    ) : (
+      this.props.children
+    )
   }
 }

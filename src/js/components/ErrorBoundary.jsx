@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 class ErrorBoundary extends Component {
   state = {
@@ -14,14 +15,30 @@ class ErrorBoundary extends Component {
   }
 
   render() {
+    const { children, message } = this.props
     const { hasError, errorInfo } = this.state
 
     return hasError ? (
-      <pre>
-        <code>{errorInfo.componentStack}</code>
-      </pre>
+      <div>
+        <p>{message}</p>
+        <pre>
+          <code>{errorInfo.componentStack}</code>
+        </pre>
+      </div>
     ) : (
-      this.props.children
+      children
     )
   }
 }
+
+ErrorBoundary.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  children: PropTypes.any.isRequired,
+  message: PropTypes.string
+}
+
+ErrorBoundary.defaultProps = {
+  message: 'There was an error. Sorry ¯_(ツ)_/¯'
+}
+
+export default ErrorBoundary

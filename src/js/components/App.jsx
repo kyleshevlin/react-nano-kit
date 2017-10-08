@@ -1,11 +1,17 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import store from '../store'
+import Aux from './Aux'
+import ErrorBoundary from './ErrorBoundary'
 import Greeting from './Greeting'
 
 const App = () => (
   <Provider store={store}>
-    <Greeting message="Greetings from React Nano Kit!" />
+    <Aux>
+      <ErrorBoundary>
+        <Greeting message="Greetings from React Nano Kit!" />
+      </ErrorBoundary>
+    </Aux>
   </Provider>
 )
 

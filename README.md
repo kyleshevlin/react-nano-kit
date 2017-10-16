@@ -45,6 +45,7 @@ This script does the following:
 * Installs all dependencies with Yarn
 * Initializes a new git repo
 * Touches a README file and adds some text to the file for you to edit, with a reminder to also edit your `package.json` file with your new project's information
+* Echoes instructions for your next steps
 
 Now, we can start the app in two ways. First, we can build the app into a `build/` directory:
 ```

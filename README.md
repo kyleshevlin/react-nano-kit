@@ -38,7 +38,7 @@ npm install -g yarn
 
 Now we can run a script to do some initial setup of your project.
 ```
-yarn run setup:new
+yarn run setup
 ```
 This script does the following:
 * Removes previous `.git` directory and README

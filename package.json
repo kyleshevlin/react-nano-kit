@@ -18,8 +18,12 @@
     "setup": "rm -rf .git README.md && yarn install && git init && touch README.md && echo \"# New Project\n\nBe sure to update this file and package.json with your new project's name.\" > README.md && echo \"Your new project is setup but there's still work for you to do.\n1. Remove the \"setup\" script from package.json\n2. Rename the project\n3. Fill out the README\n4. Remove references to React Nano Kit throughout the app\n5. Have fun building.\""
   },
   "jest": {
+    "setupFiles": [
+      "./src/js/shim.js",
+      "./src/js/setupTests.js"
+    ],
     "snapshotSerializers": [
-      "jest-serializer-enzyme"
+      "enzyme-to-json/serializer"
     ]
   },
   "devDependencies": {
@@ -39,6 +43,8 @@
     "classnames": "^2.2.5",
     "css-loader": "^0.28.4",
     "enzyme": "^3.1.0",
+    "enzyme-adapter-react-16": "^1.0.3",
+    "enzyme-to-json": "^3.2.1",
     "eslint": "^4.4.0",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-config-prettier": "^2.3.0",
